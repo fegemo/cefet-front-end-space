@@ -17,16 +17,3 @@ const servidorDasImagens = 'https://fegemo.github.io/cefet-web/images/',
 let indiceDaFotoCorrente = 0;
 
 // ...
-function mudaImagem(operacao) {
-  let slideEl = document.querySelector('#slide');
-  indiceDaFotoCorrente = (indiceDaFotoCorrente + operacao + nomesDasImagens.length) % nomesDasImagens.length;
-  slideEl.src = servidorDasImagens + nomesDasImagens[indiceDaFotoCorrente];
-}
-
-let botoesGaleria = document.querySelectorAll('.controle');
-for (let i = 0; i < botoesGaleria.length; i++) {
-  botoesGaleria[i].addEventListener('click', function(e) {
-    let operacao = e.currentTarget.id === 'proximo' ? 1 : -1;
-    mudaImagem(operacao);
-  });
-}

@@ -1,3 +1,13 @@
+// Este arquivo contém o código para fazer as "abas" funcionarem.
+// Quando o usuário clica em uma aba, o <article> que contém o id igual
+// ao href da aba clicada será exibido. Por exemplo:
+//
+// 1. Usuário clica em <a href="#aliens">Sobre Aliens</a>
+// 2. Este código:
+//    a. torna todos os <article>...</article> invisíveis
+//    b. torna visível o <article id="aliens">...</article>
+//
+
 function exibeArtigo(idDoArtigo) {
   // itera sobre todos os artigos (.aba-conteudo) e os desativa
   // itera sobre todos os itens do menu e os desativa
