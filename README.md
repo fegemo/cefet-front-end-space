@@ -47,6 +47,12 @@ no momento do clique (`e.screenX` e `e.screenY`), qual botão do
 mouse foi usado (`e.button`) e [algumas outras coisas][click-event]. Veja
 mais no [FAQ](#faq).
 
+O `e.currentTarget` dentro da função de `click` aponta para o elemento HTML
+que foi alvo do evento, ou seja, o botão. Mas precisamos alterar o parágrafo
+pai do botão, e não o botão mesmo. Para tanto, você deve "navegar" no DOM:
+a partir do botão, pegar o pai dele, que é o parágrafo. Veja como
+[pegar o pai de um elemento no DOM][subindo-no-dom].
+
 Para expandir um parágrafo, basta colocar a classe `.expandido` nele e,
 para retraí-lo, basta remover essa classe. Veja o [FAQ](#faq) se tiver
 dúvidas sobre como colocar/remover uma classe em/de um elemento do DOM.
@@ -176,6 +182,7 @@ o código que repete para dentro de uma nova função, que possui um parâmetro
 [click-event]: https://developer.mozilla.org/en-US/docs/Web/Events/click
 [clicando-botao]: https://fegemo.github.io/cefet-front-end/classes/js1/#evento-clique
 [query-selector-all]: https://fegemo.github.io/cefet-front-end/classes/js2/#selecionando-varios-elementos
+[subindo-no-dom]: https://fegemo.github.io/cefet-front-end/classes/js2/#subindo-na-arvore
 [iteracao]: https://fegemo.github.io/cefet-front-end/classes/js2/#for-formas-preferiveis
 [classes]: https://fegemo.github.io/cefet-front-end/classes/js2/#colocando-removendo-classes
 [argumento-de-click]: https://fegemo.github.io/cefet-front-end/classes/js2/#argumento-de-click
