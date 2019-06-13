@@ -2,9 +2,9 @@
 
 Uma página espacial.
 
-## Atividade 1: expandir/retrair parágrafos
+## 1ª parte: expandir/retrair parágrafos
 
-Você deve criar um código em Javascript, no arquivo `exercicio1.js`, para
+Você deve criar um código em Javascript, no arquivo `atividade1.js`, para
 fazer os botões "+" expadirem ou retrairem o texto dos parágrafos,
 **alternadamente**. Leia este enunciado e depois faça
 os [exercícios 1.1](#exercício-1.1), [1.2](#exercício-1.2)
@@ -32,14 +32,24 @@ p.expandido {
 
 Neste exercício, atribua um evento de clique para cada botão
 `.botao-expandir-retrair`, passando uma _callback_ que apenas mostra uma
-mensagem de alerta (_i.e._, `alert('mensagem aqui');`.
+mensagem de alerta (_i.e._, `alert('mensagem aqui');`. Para tanto, você deve:
+
+1. Criar uma variável que contém **todos** esses botões (`.botao-expandir-retrair`)
+1. Percorrer esse vetor. Para cada item:
+   1. Associar ao evento de clique uma função que mostra uma mensagem 
+      com `alert('...')` ([FAQ](#faq))
+  
+
+**[Importante]** Este exercício deve ser feito sem utilizar `id`s, para que,
+ao acrescentar novos parágrafos na página, não seja necessário fazer
+nenhuma alteração no código JavaScript.
 
 ### Exercício 1.2
 
 Altere o código para que o botão expanda ou retraia **apenas o parágrafo
-dentro do qual ele está**. Para isso, será necessário usar o
-parâmetro `e` (ou `evt`, ou `evento`) da _callback_ de `click` para
-detectar que parágrafo contém o botão que foi clicado.
+dentro do qual ele está** em vez de apenas mostrar a mensagem. Para isso, 
+será necessário usar o parâmetro `e` (ou `evt`, ou `evento`) da _callback_ 
+de `click` para detectar que parágrafo contém o botão que foi clicado.
 
 Esse parâmetro possui informações sobre o evento, como **o elemento HTML
 que foi clicado** (`e.currentTarget`), as coordenadas (x,y) do mouse
@@ -59,9 +69,6 @@ dúvidas sobre como colocar/remover uma classe em/de um elemento do DOM.
 Pode ser mais fácil alternar a classe (em vez de removê-la ou adicioná-la),
 como descrito [nos slides][alternando-uma-classe].
 
-**[Importante]** Este exercício deve ser feito sem utilizar `id`s, para que,
-ao acrescentar novos parágrafos na página, não seja necessário fazer
-nenhuma alteração no código JavaScript.
 
 ### Exercício 1.3
 
@@ -69,42 +76,37 @@ Além de expandir/retrair o parágrafo, **o conteúdo do botão** deve alternar
 entre `-` e `+`, indicando se o próximo clique vai retrair ou expandir.
 O [FAQ](#faq) contém uma pergunta sobre como alterar o conteúdo de um elemento.
 
-## Atividade 2: galeria de imagens
+
+## 2ª parte: galeria de imagens
 
 Nesta atividade, você vai criar uma galeria de imagens. Os botões `#anterior`
 e `#proximo` devem permitir que o usuário alterne a imagem que está
-sendo exibida e o código para isso deve ser feito no arquivo `exercicio2.js`.
+sendo exibida e o código para isso deve ser feito no arquivo `atividade2.js`.
 
 Leia este enunciado e depois faça
 o [exercício 2.1](#exercício-2.1) e, opcionalmente, os desafios
 [2.2](#desafio-2.2) e [2.3](#desafio-2.3).
 
-É possível fazer a galeria ao menos de **2 formas diferentes**:
-
-1. Ter apenas um `<img>` no DOM e trocar o atributo `src` dela para o da
-   imagem corrente
-   - É necessário ter uma variável que indica o índice (no _array_) da
-     imagem corrente
-1. **[Mais difícil]** Ter um `<img>` para cada imagem
-   exibida e mostrar apenas a imagem corrente.
-   - A ideia é colocar as `<img>`s no HTML dentro de um _container_, como uma
-     `<div>` ou uma `<figure>`, que tenha o tamanho suficiente para mostrar
-     apenas 01 imagem
-   - Aí, ao clicar em um botão, altera qual a imagem que está sendo mostrada,
-     o que pode ser feito usando `display: inline` _vs_ `display: none`,
-     ou `left: 0` + `position:absolute` ou outras formas de alteração
-     de visibilidade
+A ideia geral é usar eventos de click nos botões e alterar o é fazer em `atividade2.js` um código que vai atrelar eventos de `click`
+nos botões `#anterior` e `#proximo` chamando cada um uma função que vai
+definir qual é o índice da nova imagem (use a variável `indiceDaFotoCorrente`)
+e, em seguida, alterar o caminho (atributo `src`) da imagem `#slide`.
 
 ### Exercício 2.1
 
-No arquivo `exercicio2.js` (que ainda não está incluído), crie um código que
-pegue os botões `#anterior` e `#proximo` (ambos têm a classe `.controle`) e
-atrele, a cada um, um evento `click`.
+No arquivo `atividade2.js` (que ainda não está incluído), crie um código que
+pegue os botões `#anterior` e `#proximo` e atrele, a cada um, um evento `click`.
 
 A função associada ao clique deve determinar o índice da próxima imagem a ser
-mostrada. O caminho para essa imagem deve ser formado concatenando
-(veja [FAQ](#faq)) a constante `servidorDasImagens` com o nome da
-imagem atual.
+mostrada (use a variável `indiceDaFotoCorrente`). O índice não pode exceder a 
+quantidade de imagens, nem ser menor que `0`. Sabendo o índice (número),
+você deve determinar o caminho para a nova imagem, que deve ser formado
+concatenando (veja [FAQ](#faq)) a constante `servidorDasImagens` com o nome da
+imagem atual (buscada no vetor de nomes de arquivos).
+
+Para efetivamente trocar a imagem, você deve definir o atributo `src` da
+imagem `#slide` (ver [FAQ](#faq)) para o caminho para a nova imagem.
+
 
 ### Desafio 2.2
 
