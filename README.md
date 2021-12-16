@@ -1,8 +1,65 @@
-# Exploração Espacial
+# Exploração Espacial 👽
 
-Uma página espacial.
+Uma página espacial. Baixe o [código seminal][seminal].
 
-## 1ª parte: expandir/retrair parágrafos
+[seminal]: https://github.com/fegemo/cefet-front-end-space/archive/main.zip
+
+
+
+## 1ª parte: galeria de imagens
+
+Nesta atividade, você vai criar uma galeria de imagens. Os botões `#anterior`
+e `#proximo` devem permitir que o usuário alterne a imagem que está
+sendo exibida e o código para isso deve ser feito no arquivo `atividade2.js`.
+
+Leia este enunciado e depois faça
+o [exercício 1.1](#exercício-1.1) e, opcionalmente, os desafios
+[1.2](#desafio-1.2) e [1.3](#desafio-1.3).
+
+A ideia geral é usar eventos de click nos botões e alterar o é fazer em `atividade2.js`
+um código que vai atrelar eventos de `click`
+nos botões `#anterior` e `#proximo` chamando cada um uma função que vai
+definir qual é o índice da nova imagem (use a variável `indiceDaFotoAtual`)
+e, em seguida, alterar o caminho (atributo `src`) da imagem `#slide`.
+
+
+### Exercício 1.1
+
+No arquivo `atividade2.js` (que ainda não está incluído), crie um código que
+pegue os botões `#anterior` e `#proximo` e atrele, a cada um, um evento `click`.
+
+A função associada ao clique deve determinar o índice da próxima imagem a ser
+mostrada (use a variável `indiceDaFotoAtual`). O índice não pode exceder a 
+quantidade de imagens, nem ser menor que `0`. Sabendo o índice (número),
+você deve determinar o caminho para a nova imagem, que deve ser formado
+concatenando (veja [FAQ](#faq)) a constante `servidorDasImagens` com o nome da
+imagem atual (buscada no vetor de nomes de arquivos).
+
+Para efetivamente trocar a imagem, você deve definir o atributo `src` da
+imagem `#slide` (ver [FAQ](#faq)) para o caminho para a nova imagem.
+
+
+### Desafio 1.2
+
+Faça com que a galeria seja "circular": ao ultrapassar a última ou a
+primeira imagem, ela deve voltar para a primeira ou a última,
+respectivamente. Veja o [FAQ](#faq) se precisar de ideias sobre isso.
+
+
+### Desafio 1.3
+
+Organize o código de forma que a funcionalidade de alternar a imagem
+esteja em apenas 01 função e o evento de clique nos botões
+`#anterior` e `#proximo` apenas chamem essa função, passando `-1` ou
+`1` como argumento.
+
+Essa é uma **ótima prática para programar**: evitar código repetido, levando
+o código que repete para dentro de uma nova função, que possui um parâmetro
+(_e.g._, `incrementoNoIndice`) para indicar o que ela deve fazer.
+
+
+
+## 2ª parte: expandir/retrair parágrafos
 
 Você deve criar um código em Javascript, no arquivo `atividade1.js`, para
 fazer os botões "+" expadirem ou retrairem o texto dos parágrafos,
@@ -28,7 +85,7 @@ p.expandido {
 }
 ```
 
-### Exercício 1.1
+### Exercício 2.1
 
 Neste exercício, atribua um evento de clique para cada botão
 `.botao-expandir-retrair`, passando uma _callback_ que apenas mostra uma
@@ -44,7 +101,8 @@ mensagem de alerta (_i.e._, `alert('mensagem aqui');`. Para tanto, você deve:
 ao acrescentar novos parágrafos na página, não seja necessário fazer
 nenhuma alteração no código JavaScript.
 
-### Exercício 1.2
+
+### Exercício 2.2
 
 Altere o código para que o botão expanda ou retraia **apenas o parágrafo
 dentro do qual ele está** em vez de apenas mostrar a mensagem. Para isso, 
@@ -70,60 +128,12 @@ Pode ser mais fácil alternar a classe (em vez de removê-la ou adicioná-la),
 como descrito [nos slides][alternando-uma-classe].
 
 
-### Exercício 1.3
+### Exercício 2.3
 
 Além de expandir/retrair o parágrafo, **o conteúdo do botão** deve alternar
 entre `-` e `+`, indicando se o próximo clique vai retrair ou expandir.
 O [FAQ](#faq) contém uma pergunta sobre como alterar o conteúdo de um elemento.
 
-
-## 2ª parte: galeria de imagens
-
-Nesta atividade, você vai criar uma galeria de imagens. Os botões `#anterior`
-e `#proximo` devem permitir que o usuário alterne a imagem que está
-sendo exibida e o código para isso deve ser feito no arquivo `atividade2.js`.
-
-Leia este enunciado e depois faça
-o [exercício 2.1](#exercício-2.1) e, opcionalmente, os desafios
-[2.2](#desafio-2.2) e [2.3](#desafio-2.3).
-
-A ideia geral é usar eventos de click nos botões e alterar o é fazer em `atividade2.js` um código que vai atrelar eventos de `click`
-nos botões `#anterior` e `#proximo` chamando cada um uma função que vai
-definir qual é o índice da nova imagem (use a variável `indiceDaFotoCorrente`)
-e, em seguida, alterar o caminho (atributo `src`) da imagem `#slide`.
-
-### Exercício 2.1
-
-No arquivo `atividade2.js` (que ainda não está incluído), crie um código que
-pegue os botões `#anterior` e `#proximo` e atrele, a cada um, um evento `click`.
-
-A função associada ao clique deve determinar o índice da próxima imagem a ser
-mostrada (use a variável `indiceDaFotoCorrente`). O índice não pode exceder a 
-quantidade de imagens, nem ser menor que `0`. Sabendo o índice (número),
-você deve determinar o caminho para a nova imagem, que deve ser formado
-concatenando (veja [FAQ](#faq)) a constante `servidorDasImagens` com o nome da
-imagem atual (buscada no vetor de nomes de arquivos).
-
-Para efetivamente trocar a imagem, você deve definir o atributo `src` da
-imagem `#slide` (ver [FAQ](#faq)) para o caminho para a nova imagem.
-
-
-### Desafio 2.2
-
-Faça com que a galeria seja "circular": ao ultrapassar a última ou a
-primeira imagem, ela deve voltar para a primeira ou a última,
-respectivamente. Veja o [FAQ](#faq) se precisar de ideias sobre isso.
-
-### Desafio 2.3
-
-Organize o código de forma que a funcionalidade de alternar a imagem
-esteja em apenas 01 função e o evento de clique nos botões
-`#anterior` e `#proximo` apenas chamem essa função, passando `-1` ou
-`1` como argumento.
-
-Essa é uma **ótima prática para programar**: evitar código repetido, levando
-o código que repete para dentro de uma nova função, que possui um parâmetro
-(_e.g._, `incrementoNoIndice`) para indicar o que ela deve fazer.
 
 ## FAQ
 
